@@ -39,18 +39,17 @@ app.get("/", (req, res) => {
 
 app.get("/dashboard", async (req, res) => {
 
-// Get paginated list of all repositories
-// Based on: https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#scripting-with-pagination
-
-/**
-* @description This function retrieves paginated data from an API endpoint using 
-* GitHub's pagination syntax.
-* 
-* @param { string } url - The `url` input parameter is the base URL for which to 
-* retrieve paginated data.
-* 
-* @returns { object } - The output returned by this function is an array of data.
-*/
+    /**
+    * @description This function retrieves paginated data from an API endpoint using 
+    * GitHub's pagination syntax.
+    *
+    * Based on: https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#scripting-with-pagination
+    * 
+    * @param { string } url - The `url` input parameter is the base URL for which to 
+    * retrieve paginated data.
+    * 
+    * @returns { object } - The output returned by this function is an array of data.
+    */
     async function getPaginatedData(url) {
         const nextPattern = /(?<=<)([\S]*)(?=>; rel="Next")/i;
         let pagesRemaining = true;
@@ -80,16 +79,16 @@ app.get("/dashboard", async (req, res) => {
         return data;
     }
 
-/**
-* @description This function takes a potentially nested JSON object as input and 
-* returns the nested array of items inside the object. It does this by first checking 
-* if the input is already an array and returning it if so.
-* 
-* @param { object } data - The `data` input parameter is passed the array of items 
-* that we want to extract and parse from a larger object.
-* 
-* @returns { array } - The output returned by this function is an array of items.
-*/
+    /**
+    * @description This function takes a potentially nested JSON object as input and 
+    * returns the nested array of items inside the object. It does this by first checking 
+    * if the input is already an array and returning it if so.
+    * 
+    * @param { object } data - The `data` input parameter is passed the array of items 
+    * that we want to extract and parse from a larger object.
+    * 
+    * @returns { array } - The output returned by this function is an array of items.
+    */
     function parseData(data) {
       // If the data is an array, return that
         if (Array.isArray(data)) {
