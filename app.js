@@ -39,8 +39,9 @@ app.get("/", (req, res) => {
 
 app.get("/dashboard", async (req, res) => {
 
-    // Get paginated list of all repositories
-    // Based on: https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#scripting-with-pagination
+// Get paginated list of all repositories
+// Based on: https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api?apiVersion=2022-11-28#scripting-with-pagination
+
 /**
 * @description This function retrieves paginated data from an API endpoint using 
 * GitHub's pagination syntax.
