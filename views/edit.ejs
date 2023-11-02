@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Komment.ai</title>
+    <style>th { text-align: left; }</style>
+</head>
+
+<body>
+    	<h1> <%= title %> </h1>
+	    <p> Welcome, <%= username %> </p>
+        
+        <hr>
+        
+        <% if (show_alert === true) { %>
+        <dialog open>
+            <p><%= message %></p>
+            <form method="dialog">
+                <button>OK</button>
+            </form>
+        </dialog>
+        <% } %>
+
+        <p> File name: <strong> <%= file_name %> </strong><p>
+        <p> File contents: <%= file_content %> </p>
+        
+        <br/>
+        
+        <button onclick="location.href='http://localhost:3000/commit?owner=<%=repo_owner%>&repo=<%= repo_name %>&path=<%=file_name%>&sha=<%= sha%>';">Add comment</button>
+        <button onclick="location.href='http://localhost:3000/dashboard';" id="auth">Go back to dashboard</button>
+</body>
+</html>

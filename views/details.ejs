@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Komment.ai</title>
+    <style> th { text-align: left; } td { padding-right: 15px; } </style>
+</head>
+
+<body>
+    	<h1> <%= title %> </h1>
+	    <p> Welcome, <%= username %> </p>
+        <hr>
+        <p> Repository: <strong> <%= repo_name %> </strong><p>
+        
+        <table>
+            <tr>
+               <th>Filename</th><th>Type</th><th>Size</th><th>SHA</th>
+            </tr> 
+     
+            <% for (var i = 0; i < repo_files.length; i++) { %>
+             <tr>
+               <td><a href="edit?owner=<%=repo_owner%>&repo=<%= repo_name %>&path=<%=repo_files[i].name%>"><%= repo_files[i].name %></a></td>
+               <td><%= repo_files[i].type %></td>
+               <td><%= repo_files[i].size %></td>
+               <td><%= repo_files[i].sha  %></td>
+             </tr>    
+            <% } %>
+        </table> 
+</body>
+</html>

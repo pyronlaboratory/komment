@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Komment.ai</title>
+    <style> th { text-align: left; } td { padding-right: 15px; } </style>
+</head>
+
+<body>
+    	<h1> <%= title %> </h1>
+	    <p> Welcome, <%= username %> </p>
+        <hr>
+        <p> Total accessible repositories: <strong> <%= total_repositories%> </strong><p>
+        
+        <table>
+            <tr>
+               <th>ID</th><th>Name</th><th>Owner</th><th>Created At</th><th>Updated At</th>
+            </tr> 
+     
+            <% for (var i = 0; i < repositories.length; i++) { %>
+             <tr>
+               <td><%= repositories[i].id %></td>
+               <td><a href="details?owner=<%=repositories[i].owner.login%>&repo=<%=repositories[i].name %>"><%= repositories[i].name %></a></td>
+               <td><%= repositories[i].owner.login %></td>
+               <td><%= repositories[i].created_at %></td>
+               <td><%= repositories[i].updated_at %></td>
+             </tr>    
+            <% } %>
+        </table> 
+</body>
+</html>
