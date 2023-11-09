@@ -1,5 +1,9 @@
 // Test functions
 
-function square(number) {
+function f1(number) {
   return number * number;
 }
+
+const f2 = function (number) {
+  return number * number;
+};
