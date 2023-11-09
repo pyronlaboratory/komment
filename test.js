@@ -27,6 +27,18 @@ const f2 = function (number) {
   return number * number;
 };
 
+/**
+* @description The function `f3` takes a single parameter `number`, and returns the 
+* square of that number.
+* 
+* `f3(x) = x * x`
+* 
+* @param { number } number - The `number` input parameter multiplies with itself to 
+* compute the square of the input.
+* 
+* @returns { number } - The output returned by the function `f3` with the argument 
+* `42` would be `1764`.
+*/
 const f3 = (number) => {
   return number * number;
 };
