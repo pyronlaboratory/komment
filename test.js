@@ -1,4 +1,4 @@
-class TestFunctions {
+const TestFunctions = class {
 
 /**
 * @description This function takes a single argument `number`, multiplies it by 
