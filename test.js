@@ -1,4 +1,4 @@
-const TestFunctions = class {
+// const TestFunctions = class {
 
 /**
 * @description This function takes a single argument `number`, multiplies it by 
@@ -43,4 +43,4 @@ const f3 = (number) => {
   return number * number;
 };
   
-}
+// }
