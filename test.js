@@ -1,3 +1,5 @@
+f0() { };
+
 f1(number) {
   return number * number;
 };
