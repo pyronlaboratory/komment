@@ -1,10 +1,4 @@
-/**
-* @description This function does nothing because it returns 1 but does not assign
-* it to any variable or use it inside any expression.
-* 
-* @returns { number } The output returned by `f0()` is `1`.
-*/
-function f0() { return 1; };
+function f0() { console.log("dummy"); };
 
 // f1(number) {
 //   return number * number;
