@@ -1,1 +1,1 @@
-f0 = () => { console.log("dummy"); };
+f0 = (a, b) => { console.log("dummy"); };
