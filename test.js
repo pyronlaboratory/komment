@@ -1,1 +1,1 @@
-f0 = (a, b) => { console.log("dummy"); };
+const f0 = (a, b) => { console.log("dummy"); };
