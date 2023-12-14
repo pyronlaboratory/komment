@@ -9,18 +9,6 @@ from queue import PriorityQueue
 
 class Node:
     def __init__(self, state, depth=0, moves=None, optimizer=0):
-        """
-        Parameters:
-            state: State of Puzzle
-            depth: Depth of State in Space Search Tree
-            moves: Moves List to reach this state from initial state
-            optimizer: Used for UCS Only
-                0 - Manhattan Distance
-                1 - Hamming Distance
-                2 - Combination of 0 and 1
-
-        Returns: Node Object
-        """
         self.state = state
         self.size = len(state)
         self.depth = depth
