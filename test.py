@@ -9,6 +9,21 @@ from queue import PriorityQueue
 
 class Node:
     def __init__(self, state, depth=0, moves=None, optimizer=0):
+        """
+        This function sets up the variables and data structures for an agent playing
+        a game.
+
+        Args:
+            state (list): The `state` input parameter sets the initial state of
+                the board to be searched.
+            depth (int): The `depth` input parameter determines the current depth
+                of the search tree being constructed.
+            moves (list): The `moves` input parameter is a list of possible moves
+                to be explored during the game.
+            optimizer (int): The `optimizer` input parameter is an optional argument
+                that sets the optimization algorithm to be used for generating moves.
+
+        """
         self.state = state
         self.size = len(state)
         self.depth = depth
@@ -134,6 +149,17 @@ class Node:
         return ans
 
     def getHammingDistance(self):
+        """
+        This function calculates the Hamming distance of a given binary vector.
+        It iterates over each position and checks if the element is not equal to
+        the dot product of its position and a given shift (i.e., i*3 + j + 1) or
+        equal to zero. If the element fails the check then the function adds 1 to
+        the distance.
+
+        Returns:
+            int: The output returned by the function `getHammingDistance` is 0.
+
+        """
         ans = 0
         for i in range(self.size):
             for j in range(self.size):
@@ -142,11 +168,34 @@ class Node:
         return ans
 
     def __hash__(self):
+        """
+        This function implements a custom `__hash__` method for an object-oriented
+        class.
+
+        Returns:
+            list: The output returned by this function is a hash value computed
+            using the `hash()` function applied to the list of tuples formed by
+            flattening the contents of the object's state attribute.
+
+        """
         flatState = [j for sub in self.state for j in sub]
         flatState = tuple(flatState)
         return hash(flatState)
 
     def __gt__(self, other):
+        """
+        This function compares two objects using three different distance metrics
+        (Manhattan distance and Hamming distance) based on the value of an optimizer
+        parameter.
+
+        Args:
+            other (): In the function you provided `other` is the object that is
+                being compared to the current object.
+
+        Returns:
+            bool: The output returned by this function is `True`.
+
+        """
         if self.optimizer == 0:
             if self.getManhattanDistance() > other.getManhattanDistance():
                 return True
@@ -168,6 +217,18 @@ class Node:
         return True
 
     def __ge__(self, other):
+        """
+        This function defines a method `__ge__` for objects of a class that takes
+        an argument `other`.
+
+        Args:
+            other (): In this function `other` is used as a reference to compare
+                with the current object being checked.
+
+        Returns:
+            bool: The output returned by this function is always `True`.
+
+        """
         if self.optimizer == 0:
             if self.getManhattanDistance() >= other.getManhattanDistance():
                 return True
@@ -189,6 +250,20 @@ class Node:
         return True
 
     def __lt__(self, other):
+        """
+        This function implements a comparison between two objects using three
+        different distance metrics (Manhattan distance and Hamming distance) and
+        returns `True` if the object's distance is smaller than the other object's
+        distance.
+
+        Args:
+            other (None): In the provided function `def __lt__(self) :`, the `other`
+                parameter is used as a reference to compare with the current object.
+
+        Returns:
+            bool: The output returned by this function is `True`.
+
+        """
         if self.optimizer == 0:
             if self.getManhattanDistance() < other.getManhattanDistance():
                 return True
@@ -210,6 +285,18 @@ class Node:
         return True
 
     def __le__(self, other):
+        """
+        This function compares two objects based on their optimizer value and
+        computes the distance between them using Hamming and Manhattan distances.
+
+        Args:
+            other (): The `other` parameter is compared to the current object to
+                determine the difference between them.
+
+        Returns:
+            bool: The output returned by this function is `True`.
+
+        """
         if self.optimizer == 0:
             if self.getManhattanDistance() <= other.getManhattanDistance():
                 return True
@@ -231,6 +318,22 @@ class Node:
         return True
 
     def __eq__(self, other):
+        """
+        This function implements the `__eq__` (equal) method for an object and
+        compares it to another object based on three different optimizers: Manhattan
+        distance (the sum of absolute differences), Hamming distance (the number
+        of positions where the corresponding elements are different), and a combined
+        distance using both.
+
+        Args:
+            other (): The `other` parameter is compared to the current object using
+                different distance metrics (Manhattan distance or Hamming distance)
+                depending on the value of the optimizer attribute.
+
+        Returns:
+            bool: The output returned by this function is `True`.
+
+        """
         if self.optimizer == 0:
             if self.getManhattanDistance() == other.getManhattanDistance():
                 return True
@@ -254,6 +357,16 @@ class Node:
 
 class Solver:
     def __init__(self, state):
+        """
+        This function defines a constructor for an object that initializes the
+        object's state to the provided `state` argument.
+
+        Args:
+            state (None): The `state` input parameter initializes the object's
+                `state` attribute with the value passed as an argument when the
+                object is created.
+
+        """
         self.state = state
 
     def isSolvable(self):
